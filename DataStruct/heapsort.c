@@ -241,7 +241,7 @@ void Down(PriorityQueue H, HeapNode N)		//交换结点内容的递归下滤操作
 HeapNode FindLast(PriorityQueue H)
 {
 	int deepth, temLay;
-	for (deepth = 0, temLay = H->size; temLay != 1; temLay = (temLay >> 1), deepth++);
+	for (deepth = 0, temLay = H->size; temLay != 1; temLay = (temLay >> 1), deepth++);//获取二叉树深度
 	HeapNode temNode = NULL;
 	if (1 << (deepth + 1) == H->size + 1)			//判断二叉树是否已满
 	{
@@ -253,7 +253,7 @@ HeapNode FindLast(PriorityQueue H)
 	int LastNodes = H->size - ((1 << deepth) - 1);
 	turns = deepth -1;
 	temNode = H->head;
-	while (1)
+	while (1)		//该循环中一直往最底层不满的那边走
 	{
 		if ((1 <<( turns+1)) == 2)
 			break;
